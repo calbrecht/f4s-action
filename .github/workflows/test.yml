@@ -14,4 +14,5 @@ jobs:
         with:
           nix-cmds: |
             nix shell nixpkgs#coreutils --command env
-            nix run nixpkgs#tree /github
+            nix run nixpkgs#tree -la /github
+            nix run .github#hello
