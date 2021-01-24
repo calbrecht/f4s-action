@@ -1,0 +1,12 @@
+name: 'Nix Flakes'
+description: 'Run Nix command with Flakes'
+inputs:
+  nix-command:
+  description: 'Command to run with nix'
+  required: false
+  default: '--help'
+  runs:
+    using: 'docker'
+    image: 'Dockerfile'
+    args:
+      - ${{ inputs.nix-command }}
