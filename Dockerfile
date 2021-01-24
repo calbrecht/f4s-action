@@ -6,4 +6,4 @@ RUN mkdir -p /etc/nix \
 RUN nix registry add nixpkgs github:NixOS/nixpkgs/f217c0ea7c148ddc0103347051555c7c252dcafb \
     && nix flake archive nixpkgs
 
-ENTRYPOINT ["nix"]
+ENTRYPOINT ["sh", "-c"]
