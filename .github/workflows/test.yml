@@ -9,9 +9,4 @@ jobs:
         id: hello
         uses: calbrecht/f4s-action@test6
         with:
-          nix-cmd: run github:calbrecht/f4s-action?dir=.github#hello
-      - name: What's in env?
-        id: env
-        uses: calbrecht/f4s-action@test6
-        with:
-          nix-cmd: env
+          nix-cmd: nix shell nixpkgs#coreutils --command env
