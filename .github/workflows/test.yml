@@ -14,4 +14,4 @@ jobs:
         with:
           nix-cmds: |
             nix run .github#hello
-            nix run nixpkgs#tree -- -la /root /home /github
+            cat $GITHUB_WORKSPACE/.git/config
