@@ -1,6 +1,12 @@
 name: 'Nix Flakes'
 description: 'Run Nix command with Flakes'
 inputs:
+  nix-config:
+    description: Nix config in /etc/nix/nix.conf
+    required: false
+    default: |
+      experimental-features = ca-references nix-command flakes
+      sandbox = true
   nix-cmds:
     description: Commands to run with sh -c $nix-cmds
     required: false
@@ -11,6 +17,7 @@ runs:
   entrypoint: sh
   args:
     - -c
-    - mkdir -p /etc/nix \
-      && echo 'experimental-features = ca-references nix-command flakes' > /etc/nix/nix.conf \
+    - >
+      mkdir -p /etc/nix
+      && echo "${{ inputs.nix-config }}" >> /etc/nix/nix.conf
       && ${{ inputs.nix-cmds }}
