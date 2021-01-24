@@ -9,4 +9,4 @@ jobs:
         id: hello
         uses: calbrecht/f4s-action@test5
         with:
-          nix-cmd: run nixpkgs#tree -- /github
+          nix-cmd: run github:calbrecht/f4s-action?dir.github#hello
