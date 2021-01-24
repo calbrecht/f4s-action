@@ -7,6 +7,6 @@ jobs:
     steps:
       - name: Hello world action step
         id: hello
-        uses: calbrecht/f4s-action@test2
+        uses: calbrecht/f4s-action@test3
         with:
-          nix-command: run .github#hello
+          nix-cmd-args: [ run, .github#hello ]
