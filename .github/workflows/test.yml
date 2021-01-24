@@ -7,6 +7,8 @@ jobs:
     steps:
       - name: Hello world action step
         id: hello
-        uses: calbrecht/f4s-action@test6
+        uses: calbrecht/f4s-action@test7
         with:
-          nix-cmd: shell nixpkgs#coreutils --command env
+          nix-cmds: |
+            nix shell nixpkgs#coreutils --command env
+            nix shell nixpkgs#coreutils --command env
