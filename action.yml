@@ -2,11 +2,14 @@ name: 'Nix Flakes'
 description: 'Run Nix command with Flakes'
 inputs:
   nix-cmds:
-    description: 'Commands to run with sh -c $nix-cmds'
+    description: Commands to run with sh -c $nix-cmds
     required: false
     default: nix --help
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
+  using: docker
+  image: docker://nixpkgs/nix-flakes:latest
+  entrypoint: [sh, -c]
   args:
-    - ${{ inputs.nix-cmds }}
+    - mkdir -p /etc/nix \
+      && echo 'experimental-features = ca-references nix-command flakes' > /etc/nix/nix.conf \
+      && ${{ inputs.nix-cmds }}
