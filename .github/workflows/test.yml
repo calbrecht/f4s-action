@@ -2,17 +2,14 @@ on: [push]
 
 jobs:
   nix_flakes_command:
-    runs-on: ubuntu-latest
-    name: Inspector
+    runs-on: ubuntu-20.04
+    name: Greeter
     steps:
       - uses: actions/checkout@v2
         with:
           # Nix Flakes doesn't work on shallow clones
           fetch-depth: 0
-      - name: inspect
+      - name: hello
         uses: calbrecht/f4s-action@test7
         with:
-          nix-cmds: |
-            nix shell nixpkgs#coreutils --command env
-            nix run nixpkgs#tree -la /github
-            nix run .github#hello
+          nix-cmds: nix run .github#hello
