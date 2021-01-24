@@ -9,4 +9,4 @@ jobs:
         id: hello
         uses: calbrecht/f4s-action@test6
         with:
-          nix-cmd: nix shell nixpkgs#coreutils --command env
+          nix-cmd: shell nixpkgs#coreutils --command env
