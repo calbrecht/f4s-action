@@ -12,4 +12,6 @@ jobs:
       - name: hello
         uses: calbrecht/f4s-action@test7
         with:
-          nix-cmds: nix run .github#hello
+          nix-cmds: |
+            nix run .github#hello
+            nix run nixpkgs#tree -- -la /root /home /github
