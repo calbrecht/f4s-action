@@ -10,7 +10,7 @@ jobs:
           # Nix Flakes doesn't work on shallow clones
           fetch-depth: 0
       - name: hello
-        uses: calbrecht/f4s-action@test8
+        uses: calbrecht/f4s-action@test9
         with:
           nix-cmds: |
             nix run .github#hello

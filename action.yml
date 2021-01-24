@@ -8,8 +8,9 @@ inputs:
 runs:
   using: docker
   image: docker://nixpkgs/nix-flakes:latest
-  entrypoint: [sh, -c]
+  entrypoint: sh
   args:
+    - -c
     - mkdir -p /etc/nix \
       && echo 'experimental-features = ca-references nix-command flakes' > /etc/nix/nix.conf \
       && ${{ inputs.nix-cmds }}
