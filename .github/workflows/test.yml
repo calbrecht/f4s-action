@@ -14,4 +14,4 @@ jobs:
         with:
           nix-cmds: |
             nix run .github#hello
-            cat $GITHUB_WORKSPACE/.git/config
+            nix run nixpkgs#tree -- -la $RUNNER_TEMP
